@@ -6,57 +6,56 @@ for(let element of nodrags) {
     }
 }
 
-gsap.set('.overlay .logo', {
-    y: -100
-})
+// gsap.set('.overlay .logo', {
+//     y: -100
+// })
 
 const openTl = gsap.timeline();
 
-// openTl.to('.overlay .logo', {
-//     opacity: 1,
-//     duration: 1,
-//     y: 0,
-//     ease: 'sine.out'
-// })
-// .to('.overlay .logo', {
-//     opacity: 0,
-//     duration: 0.4
-// })
-// .to('.overlay .left', {
-//     width: 0,
-//     duration: 0.8,
-//     ease: 'sine.in'
-// }, '+=0.4')
-// .to('.overlay .right', {
-//     width: 0,
-//     duration: 0.8,
-//     ease: 'sine.in'
-// }, '-=0.8')
-// .to('.overlay', {
-//     pointerEvents: 'none',
-//     duration: 0
-// })
-// .from('nav', {
-//     opacity: 0,
-//     yPercent: -100
-// })
-// .fromTo('.header', {
-//     backgroundSize: '120%'
-// }, {
-//     backgroundSize: '100%',
-//     duration: 1.4,
-//     ease: 'sine.inOut'
-// }, '-=1')
-// .from('.header h1', {
-//     opacity: 0,
-//     duration: 0.5,
-//     y: -30
-// }, '-=0.1')
-// .from('.header p', {
-//     opacity: 0,
-//     duration: 0.5,
-//     y: -30
-// }, '-=0.25')
+openTl.fromTo('.overlay .logo', {
+    opacity: 0,
+    duration: 0,
+    y: -100,
+    ease: 'sine.out'
+}, {
+    opacity: 1,
+    y: 0,
+    duration: 2
+})
+.to('.overlay .logo', {
+    opacity: 0,
+    duration: 2
+})
+.to('.overlay .left', {
+    width: 0,
+    duration: 0.8,
+    ease: 'sine.in'
+}, '+=0.4')
+.to('.overlay .right', {
+    width: 0,
+    duration: 0.8,
+    ease: 'sine.in'
+}, '-=0.8')
+.to('.overlay', {
+    pointerEvents: 'none',
+    duration: 0
+})
+.from('nav', {
+    opacity: 0,
+    yPercent: -100
+})
+.fromTo('.header', {
+    backgroundSize: '120%'
+}, {
+    backgroundSize: '100%',
+    duration: 1.4,
+    ease: 'sine.inOut'
+}, '-=1')
+.from('.header .line', {
+    opacity: 0,
+    x: 400,
+    stagger: 0.15
+})
 // .fromTo('header .line, header .line2', {
 //     left: '-50%'
 // },
@@ -67,10 +66,14 @@ const openTl = gsap.timeline();
 //     repeatDelay: 1.8,
 //     repeat: -1
 // })
-
-gsap.set('.overlay', {
-    display: 'none'
+.from('.header .content h2, .header .content p', {
+    opacity: 0,
+    stagger: 0.3
 })
+
+// gsap.set('.overlay', {
+//     display: 'none'
+// })
 
 // const ulToRights = document.querySelectorAll('.ul-toRight');
 
@@ -133,9 +136,3 @@ gsap.from('.tarifs .tarif2 .right', {
     scrollTrigger: '.tarifs .tarif2 .right'
 })
 
-gsap.from('.welcome p', {
-    opacity: 0,
-    y: -100,
-    duration: 1,
-    scrollTrigger: '.welcome p'
-})
