@@ -10,6 +10,8 @@ for(let element of nodrags) {
 //     y: -100
 // })
 
+window.scrollTo(0, 0)
+
 const openTl = gsap.timeline();
 
 openTl.fromTo('.overlay .logo', {
@@ -54,7 +56,10 @@ openTl.fromTo('.overlay .logo', {
 .from('.header .line', {
     opacity: 0,
     x: 400,
-    stagger: 0.15
+    stagger: 0.15,
+    onComplete: () => {
+        document.documentElement.style.overflow = 'visible';
+    }
 })
 // .fromTo('header .line, header .line2', {
 //     left: '-50%'
